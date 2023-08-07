@@ -22,8 +22,6 @@ import { CalendarDateRangePicker } from "@/components/date-range-picker"
 import { MainNav } from "@/components/main-nav"
 import { Overview } from "@/components/overview"
 import { RecentSales } from "@/components/recent-sales"
-import { Search } from "@/components/search"
-import TeamSwitcher from "@/components/team-switcher"
 import { UserNav } from "@/components/user-nav"
 
 export const metadata: Metadata = {
@@ -51,12 +49,17 @@ export default function Home() {
         />
       </div>
       <div className="hidden flex-col md:flex">
-        <div className="border-b">
-          <div className="flex h-16 items-center px-4">
-            <TeamSwitcher />
+        <div>
+          <div className="flex h-16 items-center px-4 m-2 shadow-md" id='top-nav'>
+            <Image
+              priority
+              src="/Logo.svg"
+              height={60}
+              width={60}
+              alt="Follow us on Twitter"
+            />
             <MainNav className="mx-6" />
             <div className="ml-auto flex items-center space-x-4">
-              <Search />
               <UserNav />
             </div>
           </div>
@@ -65,26 +68,19 @@ export default function Home() {
           <div className="flex items-center justify-between space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
             <div className="flex items-center space-x-2">
-              <CalendarDateRangePicker />
-              <Button>Download</Button>
+              <CalendarDateRangePicker className='pointer-events-none'/>
             </div>
           </div>
           <Tabs defaultValue="overview" className="space-y-4">
             <TabsList>
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="analytics" disabled>
-                Analytics
-              </TabsTrigger>
-              <TabsTrigger value="reports" disabled>
-                Reports
-              </TabsTrigger>
-              <TabsTrigger value="notifications" disabled>
-                Notifications
-              </TabsTrigger>
+                Graphview 
+              </TabsTrigger> 
             </TabsList>
             <TabsContent value="overview" className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <Card>
+                <Card className="rounded-xl bg-slate-100	">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
                       Total Revenue
@@ -109,7 +105,7 @@ export default function Home() {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className='rounded-xl bg-slate-100	'>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
                       Subscriptions
@@ -136,7 +132,7 @@ export default function Home() {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className='rounded-xl bg-slate-100'>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">Sales</CardTitle>
                     <svg
@@ -160,7 +156,7 @@ export default function Home() {
                     </p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className='rounded-xl bg-slate-100	'>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
                       Active Now
@@ -187,7 +183,7 @@ export default function Home() {
                 </Card>
               </div>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                <Card className="col-span-4">
+                <Card className="col-span-4 rounded-xl bg-slate-100	">
                   <CardHeader>
                     <CardTitle>Overview</CardTitle>
                   </CardHeader>
@@ -195,11 +191,11 @@ export default function Home() {
                     <Overview />
                   </CardContent>
                 </Card>
-                <Card className="col-span-3">
+                <Card className="col-span-3 rounded-xl bg-slate-100	">
                   <CardHeader>
-                    <CardTitle>Recent Sales</CardTitle>
+                    <CardTitle>Recent house access</CardTitle>
                     <CardDescription>
-                      You made 265 sales this month.
+                      There was x access yesterday 
                     </CardDescription>
                   </CardHeader>
                   <CardContent>

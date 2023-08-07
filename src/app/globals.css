@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --cloudhaven-background: rgb(201,201,225);
+  --cloudhaven-top-nav: rgb(255,255,255);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +19,12 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(0,0,0);
+  background: var(--cloudhaven-background); 
+}
+
+#top-nav {
+  background-color: var(--cloudhaven-top-nav);
+  border-radius: 15px; 
+  border-color: rgb(0 255 0);
 }
